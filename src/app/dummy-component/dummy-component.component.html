@@ -1,40 +1,44 @@
-<form>
-  <div>
-    <label for="name">name</label>>
-    <input type="text" id="name" name="name" [(ngModel)]="name"  required>
+<div id="page">
+  <form class="form-container">
+    <div class="form-row">
+      <label for="name"><strong>Name</strong></label>
+      <input class="rounded" type="text" id="name" name="name" [(ngModel)]="name"  required>
+    </div>
+    <div class="form-row">
+      <label for="name"><strong>Email</strong></label>
+      <input class="rounded" type="text" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+    <div class="form-row">
+      <label for="message"><strong>Message</strong></label>
+      <textarea class="rounded" type="text" id="message" name="message" rows="4" [(ngModel)]="message" required></textarea>
+    </div>
+    <button class="button rounded" id='submitButton' type="submit" (click)="onSubmit()">submit</button>
+  </form>
+  <div *ngIf="isSubmitted" class="card-container">
+   <!-- <h3>Form data:</h3>
+    <p>Name:{{name}}</p>
+    <p>Email:{{email}}</p>
+    <p>Message:{{message}}</p>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let msg of messages;let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{ msg.name }}</td>
+        <td>{{ msg.email }}</td>
+        <td>{{ msg.message }}</td>
+      </tr>
+      </tbody>
+    </table>-->
+    <div *ngFor="let msg of messages; let i=index">
+      <app-message-details [message]="msg" [index]="i" (delete)="deleteMessage($event)"></app-message-details>
+    </div>
   </div>
-  <div>
-    <label for="name">email</label>>
-    <input type="text" id="email" name="email" [(ngModel)]="email" required>
-  </div>
-  <div>
-    <label for="message">message</label>>
-    <textarea type="text" id="message" name="message" rows="4" [(ngModel)]="message" required></textarea>
-  </div>
-  <button type="submit" (click)="onSubmit()">submit</button>
-</form>
-<div *ngIf="isSubmitted">
-  <h3>Form data:</h3>
-  <p>Name:{{name}}</p>
-  <p>Email:{{email}}</p>
-  <p>Message:{{message}}</p>
-  <table>
-    <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Message</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let msg of messages;let i=index;">
-      <td>{{i+1}}</td>
-      <td>{{ msg.name }}</td>
-      <td>{{ msg.email }}</td>
-      <td>{{ msg.message }}</td>
-    </tr>
-    </tbody>
-
-  </table>
 </div>
