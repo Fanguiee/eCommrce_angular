@@ -7,10 +7,32 @@
     <label for="name">email</label>>
     <input type="text" id="email" name="email" [(ngModel)]="email" required>
   </div>
+  <div>
+    <label for="message">message</label>>
+    <textarea type="text" id="message" name="message" rows="4" [(ngModel)]="message" required></textarea>
+  </div>
   <button type="submit" (click)="onSubmit()">submit</button>
 </form>
 <div *ngIf="isSubmitted">
   <h3>Form data:</h3>
   <p>Name:{{name}}</p>
   <p>Email:{{email}}</p>
+  <p>Message:{{message}}</p>
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let msg of messages">
+      <td>{{ msg.name }}</td>
+      <td>{{ msg.email }}</td>
+      <td>{{ msg.message }}</td>
+    </tr>
+    </tbody>
+
+  </table>
 </div>
