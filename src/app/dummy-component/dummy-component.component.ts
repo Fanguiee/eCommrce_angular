@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {Component, inject} from '@angular/core';
+import {FormsModule, NgForm} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import {MessageDetailsComponent} from '../message-details/message-details.component';
+import {MyFirstServiceService} from '../services/my-first-service.service';
 
 @Component({
   selector: 'app-dummy-component',
@@ -21,9 +22,14 @@ export class DummyComponentComponent {
   isSubmitted:Boolean = false;
   messages:Array<any> = [];
 
+  constructor(private service:MyFirstServiceService) {
+    this.messages = this.service.getMessages();
+    this.isSubmitted = this.messages.length > 0;
+  }
+
   onSubmit() {
     this.isSubmitted = true;
-    this.messages.push({
+    this.service.insert({
       'name':this.name,
       'email':this.email,
       'message':this.message,
@@ -32,6 +38,8 @@ export class DummyComponentComponent {
   }
 
   deleteMessage(index: number) {
-    this.messages.splice(index, 1);
+    this.service.deleteMessage(index);
   }
+
+  protected readonly NgForm = NgForm;
 }
