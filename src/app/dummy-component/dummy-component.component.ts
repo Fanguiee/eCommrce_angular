@@ -3,6 +3,7 @@ import {FormsModule, NgForm} from '@angular/forms';
 import {NgForOf, NgIf} from '@angular/common';
 import {MessageDetailsComponent} from '../message-details/message-details.component';
 import {MyFirstServiceService} from '../services/my-first-service.service';
+import {MenuComponent} from '../menu/menu.component';
 
 @Component({
   selector: 'app-dummy-component',
@@ -10,7 +11,7 @@ import {MyFirstServiceService} from '../services/my-first-service.service';
     FormsModule,
     NgIf,
     NgForOf,
-    MessageDetailsComponent
+    MessageDetailsComponent,
   ],
   templateUrl: './dummy-component.component.html',
   styleUrl: './dummy-component.component.scss'
