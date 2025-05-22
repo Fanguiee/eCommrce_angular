@@ -13,7 +13,5 @@ export class MenuComponent {
 
   constructor(private router:Router) {
   }
-  navigateToAbout() {
-    this.router.navigate(['about']);
-  }
+
 }
