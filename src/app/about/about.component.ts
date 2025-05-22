@@ -9,12 +9,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AboutComponent implements OnInit {
   param:  any;
+  email: any;
   constructor(private activatedRoute:ActivatedRoute) {
   }
 
   ngOnInit(): void {
     console.log(this.activatedRoute);
     this.param = this.activatedRoute.snapshot.params['username'];
+    this.email = this.activatedRoute.snapshot.queryParams['email'];
   }
 
 }
