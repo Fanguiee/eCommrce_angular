@@ -16,12 +16,15 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.get5Products().subscribe({
+    /*this.service.getProductsWithLimit().subscribe({
         next:(data)=>{
           console.log(data)
         }
     }
-    )
+    )*/
+    let id:number=-1;
+    this.service.createProduct().subscribe(product => {console.log("product:",product);})
+    // this.service.getProductById().subscribe(product => {console.log("product:",product);});
   }
 
 }
