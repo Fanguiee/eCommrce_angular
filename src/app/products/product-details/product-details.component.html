@@ -1,0 +1,14 @@
+
+
+<div class="product-card">
+  <img class="product-image" [src]="product.image" [attr.alt]="product.title">
+  <div class="product-details">
+    <h3 class="product-title">{{ product.title }}</h3>
+    <p  class="product-price">${{product.price}}</p>
+    <p  class="product-description">{{product.description}}</p>
+    <div class="product-rating" >
+      <span class="rating-value">rating:{{product.rating?.rate}}</span>
+      <span class="rating-count">{{product.rating?.count}} reviews</span>
+    </div>
+  </div>
+</div>
