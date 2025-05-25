@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import {MyFirstServiceService} from './services/my-first-service.service';
 import {HttpClient, provideHttpClient} from '@angular/common/http';
+import {ProductService} from './services/api/products/product.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,5 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     MyFirstServiceService,
+    ProductService
   ],
 };

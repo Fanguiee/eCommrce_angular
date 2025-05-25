@@ -17,9 +17,9 @@ export class ProductService {
     return this.http.get<Array<ProductRepresentation>>(url);
   }
 
-  createProduct(){
+  createProduct(product: ProductRepresentation): Observable<ProductRepresentation> {
     const url = `${this.baseUrl}/products/`;
-    const rating:RatingRepresentation = {
+    /*const rating:RatingRepresentation = {
       rate:4.1,
       count:3
     }
@@ -28,7 +28,7 @@ export class ProductService {
       price: 10,
       description: "Sweet, aromatic",
       rating: rating
-    };
+    };*/
     return this.http.post<ProductRepresentation>(url, product);
   }
 
